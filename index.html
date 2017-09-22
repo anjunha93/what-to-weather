@@ -19,9 +19,8 @@
   <!-- javascript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
 
-   <!-- Link to Moment.js should go here -->
-   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
+  <!-- Link to Moment.js should go here -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
 
@@ -29,16 +28,16 @@
 
 
   <div class="container">
-
+  
     <br>
 
     <!-- Jumbotron -->
     <div class="jumbotron">
       <h1 class="text-center">What to Weather</h1>
     </div>
-    <div class="row">
 
-      <!-- Today's Weather -->
+    <!-- Today's Weather -->
+    <div class="row">
       <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -46,70 +45,61 @@
           </div>
           <div class="panel-body" id="recent-member">
             <span id="today-display" class="text-center"></span>
-            <span class="temp"></span>
-            <span class="test"></span>
+            <br>
+            <span class="city" class="text-center"></span>
+            <br>
+            <div class="temp"></div>
+            
+            <div class="row">
+              <div class="col-md-12">
+                <div id="weekForecast"></div>
+              </div>
             </div>
-				</button>
-          		
 
-          	</div>
-
-
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-				      </div>
-				      <div class="modal-body">
-				        ...
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				        <button type="button" class="btn btn-primary">Save changes</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-
-            <!-- <h4 id="wind-display"></h4>
-            <h4 id="humidity-display"></h4>
-            <h4 id="temp-display"></h4> -->
-          </div>
-          <div>
-          	
+          
           </div>
         </div>
-      </div>
-	</div>
+      </div> 
+	   </div>
+
+  <!-- List of all possible items  -->
     <div class="row">
-	<!-- List of all possible items  -->
        <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Here are things you'll need today</h3>
           </div>
           <!-- display ID's for items -->
-		<div class="row">
-			<div class="col-sm-2"><div id="umbrella-display" ><img src="http://lorempixel.com/output/food-q-c-150-150-8.jpg" alt="..." class="img-thumbnail"></div></div>
-			<div class="col-sm-2"><div id="jacket-display" ><img src="http://lorempixel.com/output/food-q-c-150-150-8.jpg" alt="..." class="img-thumbnail"></div></div>
-			<div class="col-sm-2"><div id="sunglasses-display" ><img src="http://lorempixel.com/output/food-q-c-150-150-8.jpg" alt="..." class="img-thumbnail"></div></div>
-			<div class="col-sm-2"><div id="shorts-display" ><img src="http://lorempixel.com/output/food-q-c-150-150-8.jpg" alt="..." class="img-thumbnail"></div></div>
-			<div class="col-sm-2"><div id="shirt-display" ><img src="http://lorempixel.com/output/food-q-c-150-150-8.jpg" alt="..." class="img-thumbnail"></div></div>
-			<div class="col-sm-2"><div id="book-display" ><img src="http://lorempixel.com/output/food-q-c-150-150-8.jpg" alt="..." class="img-thumbnail"></div></div>
-		</div>
-
-          <!--                        -->
-
+      		<div class="row">
+            <div class="col-sm-2"><div id="umbrella-display" ></div></div>
+            <div class="col-sm-2"><div id="jacket-display" ></div></div>
+            <div class="col-sm-2"><div id="shorts-display" ></div></div>
+            <div class="col-sm-2"><div id="shirt-display" ></div></div>
+            <div class="col-sm-2"><div id="longpants-display" ></div></div>
+            <div class="col-sm-2"><div id="longshirt-display" ></div></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2"><div id="rainjacket-display" ></div></div>
+            <div class="col-sm-2"><div id="snowboots-display" ></div></div>
+            <div class="col-sm-2"><div id="sunscreen-display" ></div></div>
+            <div class="col-sm-2"><div id="flask-display" ></div></div>
+            <div class="col-sm-2"><div id="hat-display" ></div></div>
+            <div class="col-sm-2"><div id="sandals-display" ></div></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2"><div id="scarf-display" ></div></div>
+            <div class="col-sm-2"><div id="gloves-display" ></div></div>
+            <div class="col-sm-2"><div id="shoes-display" ></div></div>
+            <div class="col-sm-2"><div id="book-display" ></div></div>
+            <div class="col-sm-2"><div id="sunglasses-display" ></div></div>
+            <div class="col-sm-2"><div id="swimsuits-display" ></div></div>
+          </div>
         </div>
       </div>
     </div>
 
-	<div class="row">
-	
-      <!-- Listing on Macy's -->
+<!-- Listing on Macy's -->
+  	<div class="row"> 
       <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -117,10 +107,10 @@
           </div>
         </div>
       </div>
-
     </div>
 
-  </div>
+   </div>
+  
 
   <!-- LINK TO FIREBASE GOES HERE -->
   <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
