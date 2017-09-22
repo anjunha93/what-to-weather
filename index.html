@@ -19,6 +19,8 @@
   <!-- javascript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
 
+  <!-- Link to Moment.js should go here -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
 
@@ -43,7 +45,19 @@
           </div>
           <div class="panel-body" id="recent-member">
             <span id="today-display" class="text-center"></span>
-            <span class="temp"></span>
+            <br>
+            <span class="city" class="text-center"></span>
+            <br>
+            <div class="temp"></div>
+            
+            <div class="row">
+              <div class="col-md-12">
+                <div id="weekForecast"></div>
+              </div>
+            </div>
+
+          
+            
           </div>
         </div>
       </div> 
@@ -58,12 +72,28 @@
           </div>
           <!-- display ID's for items -->
       		<div class="row">
-            <div class="col-sm-2"><div id="umbrella-display" ><img src="https://png.icons8.com/umbrella/ultraviolet/100" alt="..." class="img-thumbnail"></div></div>
-            <div class="col-sm-2"><div id="jacket-display" ><img src="https://png.icons8.com/jacket/color/100" alt="..." class="img-thumbnail"></div></div>
-            <div class="col-sm-2"><div id="sunglasses-display" ><img src="https://png.icons8.com/glasses-filled/ios7/100" alt="..." class="img-thumbnail"></div></div>
-            <div class="col-sm-2"><div id="shorts-display" ><img src="https://png.icons8.com/long-shorts/color/100" alt="..." class="img-thumbnail"></div></div>
-            <div class="col-sm-2"><div id="shirt-display" ><img src="https://png.icons8.com/t-shirt/office/100" alt="..." class="img-thumbnail"></div></div>
-            <div class="col-sm-2"><div id="book-display" ><img src="https://png.icons8.com/book/dusk/100" alt="..." class="img-thumbnail"></div></div>
+            <div class="col-sm-2"><div id="umbrella-display" ></div></div>
+            <div class="col-sm-2"><div id="jacket-display" ></div></div>
+            <div class="col-sm-2"><div id="shorts-display" ></div></div>
+            <div class="col-sm-2"><div id="shirt-display" ></div></div>
+            <div class="col-sm-2"><div id="longpants-display" ></div></div>
+            <div class="col-sm-2"><div id="longshirt-display" ></div></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2"><div id="rainjacket-display" ></div></div>
+            <div class="col-sm-2"><div id="snowboots-display" ></div></div>
+            <div class="col-sm-2"><div id="sunscreen-display" ></div></div>
+            <div class="col-sm-2"><div id="flask-display" ></div></div>
+            <div class="col-sm-2"><div id="hat-display" ></div></div>
+            <div class="col-sm-2"><div id="sandals-display" ></div></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2"><div id="scarf-display" ></div></div>
+            <div class="col-sm-2"><div id="gloves-display" ></div></div>
+            <div class="col-sm-2"><div id="shoes-display" ></div></div>
+            <div class="col-sm-2"><div id="book-display" ></div></div>
+            <div class="col-sm-2"><div id="sunglasses-display" ></div></div>
+            <div class="col-sm-2"><div id="swimsuits-display" ></div></div>
           </div>
         </div>
       </div>
