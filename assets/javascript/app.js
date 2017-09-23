@@ -1,7 +1,48 @@
+// ====================================================
+//                EBAY
+// ====================================================
+// Replace MyAppID with your Production AppID
+var url = "http://svcs.ebay.com/services/search/FindingService/v1";
+    url += "?OPERATION-NAME=findItemsByKeywords";
+    url += "&SERVICE-VERSION=1.0.0";
+    url += "&SECURITY-APPNAME=JunAhn-whattowe-PRD-25d80d3bd-a2be6d29";
+    url += "&GLOBAL-ID=EBAY-US";
+    url += "&RESPONSE-DATA-FORMAT=JSON";
+    url += "&callback=_cb_findItemsByKeywords";
+    url += "&REST-PAYLOAD";
+    url += "&keywords=men's%20flip-flops";
+    url += "&paginationInput.entriesPerPage=10";
+    // Submit the request
+    s=document.createElement('script'); // create script element
+    s.src= url;
+    document.body.appendChild(s);
+
+// Parse the response and build an HTML table to display search results
+function _cb_findItemsByKeywords(root) {
+    var items = root.findItemsByKeywordsResponse[0].searchResult[0].item || [];
+    var html = [];
+    html.push('<table width="100%" border="0" cellspacing="0" cellpadding="3"><tbody>');
+    for (var i = 0; i < items.length; ++i) {
+    var item     = items[i];
+    var title    = item.title;
+    var pic      = item.galleryURL;
+    var viewitem = item.viewItemURL;
+    if (null != title && null != viewitem) {
+      html.push('<tr><td>' + '<img src="' + pic + '" border="0">' + '</td>' +
+      '<td><a href="' + viewitem + '" target="_blank">' + title + '</a></td></tr>');
+    }
+  }
+  html.push('</tbody></table>');
+  document.getElementById("results").innerHTML = html.join("");
+}  // End _cb_findItemsByKeywords() function
+
+
+
 
 // ====================================================
 //                API and Ajax Setup
 // ====================================================
+
 
    // This is our API key
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -34,12 +75,12 @@
        
    function skyStatus() {
         
-       for (var i = 0; i < response.list.length; i++) {
+       
 
-           var sky = response.list[i].weather[0].id;  
+           var sky = response.list[0].weather[0].id;  
            
            console.log("Sky Response",sky);
-            console.log("Our response", response.list[i].description);
+            console.log("Our response", response.list[0].description);
 
            if (sky == 800 ) {
                 console.log("Clear Sky");
@@ -61,7 +102,7 @@
                 $('#today-display').html('<img src="https://maxcdn.icons8.com/Share/icon/Weather//snow1600.png" class="weatherIcon" />');
             }
 
-       }
+       
         // debugging
         console.log(sky);
     }
@@ -71,11 +112,12 @@
        for (var i = 0; i < response.list.length; i++) {
 
            var showWeek = response.list[i].dt;
-            var randomDate = moment.unix(showWeek/1000).format("ddd");
+            var randomDate = moment.unix(showWeek).format("ddd");
             console.log(showWeek);  
            console.log(randomDate);
             $("#weekForecast").append(randomDate);
 
+           
 
         }
     }
@@ -96,11 +138,17 @@
                 $('#rainboots-display').html('<img src="https://image.flaticon.com/icons/svg/100/263919.svg" alt="..." class="img-thumbnail">');
             }
 
+            if (sky >= 600 && sky < 622 ) {
+                console.log('snow');
+                $('#snowboots-display').html('<img src="https://png.icons8.com/winter-boots/ios7/100" alt="..." class="img-thumbnail">');
+            }
+
 
             if (sky == 800 ) {
                 console.log('clear sky')
                 $('#sunglasses-display').html('<img src="https://png.icons8.com/glasses-filled/ios7/100" alt="..." class="img-thumbnail">')
-                $('#sunscreen-display').html('<img src="https://png.icons8.com/tube/color/96" alt="..." class="img-thumbnail">')
+                $('#sunscreen-display').html('<img src="https://png.icons8.com/tube/color/100" alt="..." class="img-thumbnail">')
+                $('#hat-display').html('<img src="https://png.icons8.com/baseball-cap/color/100" alt="..." class="img-thumbnail">')
             } 
             
             
@@ -108,12 +156,20 @@
             //Temperature Conditions
             if (temp > 85) {
                 $('#flask-display').html('<img src="https://png.icons8.com/bottle-of-water/office/100" alt="..." class="img-thumbnail">')
-            } 
+                $('#sandals-display').html('<img src="https://png.icons8.com/flip-flops/color/96" alt="..." class="img-thumbnail">')
+                $('#swimsuits-display').html('<img src="https://png.icons8.com/swimmer-back-view/ultraviolet/100" alt="..." class="img-thumbnail">')
+            } else {
+                $('#shoes-display').html('<img src="https://png.icons8.com/trainers/color/96" alt="..." class="img-thumbnail">')
+            }
             
-            if (temp < 40) {
+            if (temp < 50) {
                 $('#jacket-display').html('<img src="https://png.icons8.com/jacket/color/100" alt="..." class="img-thumbnail">')
-                $('#scarf-display').html('<img src="https://png.icons8.com/scarf/office/100" alt="..." class="img-thumbnail">')
             } 
+
+            if (temp <40) {
+                $('#scarf-display').html('<img src="https://png.icons8.com/scarf/office/100" alt="..." class="img-thumbnail">')
+                $('#gloves-display').html('<img src="https://png.icons8.com/mitten/color/100" alt="..." class="img-thumbnail">')
+            }
 
             if (temp > 75) {
                 $('#shirt-display').html('<img src="https://png.icons8.com/t-shirt/office/100" alt="..." class="img-thumbnail">')
@@ -124,8 +180,8 @@
 
             }
 
+            //temp && weather condition
             if (sky >= 801 && sky < 804 && temp < 75 && temp > 50) {
-                console.log(book);
                 $('#book-display').html('<img src="https://png.icons8.com/book/dusk/100" alt="..." class="img-thumbnail">')
             } 
 
