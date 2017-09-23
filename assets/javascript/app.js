@@ -7,7 +7,7 @@
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
 
    // Here we are building the URL we need to query the database
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=austin&units=imperial&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=austin&units=imperial&appid=" + APIKey;
 
    // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
@@ -152,7 +152,7 @@
 
 var macyAPI = "rbp3ge7wz5ev9xp9xf4842sj"
 
-var macyQueryURL = "http://api.macys.com/v4/catalog/category/9557?expand=parent&fields=summary" ;
+var macyQueryURL = "https://api.macys.com/v4/catalog/category/9557?expand=parent&fields=summary" ;
 
 $.ajax({
         url: macyQueryURL,
