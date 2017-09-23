@@ -152,7 +152,7 @@
 
 var macyAPI = "rbp3ge7wz5ev9xp9xf4842sj"
 
-var macyQueryURL = "localhost:8000/http://api.macys.com/v4/catalog/category/9557?expand=parent&fields=summary" ;
+var macyQueryURL = "https://api.macys.com/v4/catalog/category/9557?expand=parent&fields=summary" ;
 
 $.ajax({
         url: macyQueryURL,
