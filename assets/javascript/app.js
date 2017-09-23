@@ -148,9 +148,19 @@
 // End of api function
 });
     
+//========== Macy API ======//
 
+var macyAPI = "rbp3ge7wz5ev9xp9xf4842sj"
 
+var macyQueryURL = "http://api.macys.com/v4/catalog/category/9557?expand=parent&fields=summary" ;
 
+$.ajax({
+        url: macyQueryURL,
+        method: "GET",
+        headers: {
+          "X-Macys-Webservice-Client-ID": macyAPI
+        }
+      })
 
             
             
