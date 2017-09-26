@@ -4,3 +4,14 @@ img.weatherIcon {
     padding: 10px 10px;
     
 }
+
+img.weekIcon {
+    width: 75px;
+    height: 75px;
+    padding: 10px 10px;
+}
+
+.temp {
+    text-align: center;
+    font-size: 80px;
+}
