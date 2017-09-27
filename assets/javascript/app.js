@@ -1,22 +1,27 @@
+
+
+
 // ====================================================
 //                EBAY
 // ====================================================
 
-// Replace MyAppID with your Production AppID
-var url = "https://svcs.ebay.com/services/search/FindingService/v1";
-    url += "?OPERATION-NAME=findItemsByKeywords";
-    url += "&SERVICE-VERSION=1.0.0";
-    url += "&SECURITY-APPNAME=JunAhn-whattowe-PRD-25d80d3bd-a2be6d29";
-    url += "&GLOBAL-ID=EBAY-US";
+function getProducts(keywords) {
+    var url = "https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=JunAhn-whattowe-PRD-25d80d3bd-a2be6d29&GLOBAL-ID=EBAY-US";
+    url += "";
+    url += "";
+    url += "";
+    url += "";
     url += "&RESPONSE-DATA-FORMAT=JSON";
     url += "&callback=_cb_findItemsByKeywords";
     url += "&REST-PAYLOAD";
-    url += "&keywords=men's%20flip-flops";
+    url += "&keywords=" + keywords ;
     url += "&paginationInput.entriesPerPage=10";
     // Submit the request
-    s=document.createElement('script'); // create script element
+    var s=document.createElement('script'); // create script element
     s.src= url;
     document.body.appendChild(s);
+}
+
 
 // Parse the response and build an HTML table to display search results
 function _cb_findItemsByKeywords(root) {
@@ -24,18 +29,75 @@ function _cb_findItemsByKeywords(root) {
     var html = [];
     html.push('<table width="100%" border="0" cellspacing="0" cellpadding="3"><tbody>');
     for (var i = 0; i < items.length; ++i) {
-    var item     = items[i];
-    var title    = item.title;
-    var pic      = item.galleryURL;
-    var viewitem = item.viewItemURL;
-    if (null != title && null != viewitem) {
-      html.push('<tr><td>' + '<img src="' + pic + '" border="0">' + '</td>' +
-      '<td><a href="' + viewitem + '" target="_blank">' + title + '</a></td></tr>');
+        var item     = items[i];
+        var title    = item.title;
+        var pic      = item.galleryURL;
+        var viewitem = item.viewItemURL;
+        if (null != title && null != viewitem) {
+            html.push('<tr><td>' + '<img src="' + pic + '" border="0">' + '</td>' +
+                '<td><a href="' + viewitem + '" target="_blank">' + title + '</a></td></tr>');
+        }
     }
-  }
-  html.push('</tbody></table>');
-  document.getElementById("results").innerHTML = html.join("");
+    console.log("this is the ebay search");
+    html.push('</tbody></table>');
+    document.getElementById("results").innerHTML = html.join("");
 }  // End _cb_findItemsByKeywords() function
+
+$('#umbrella-display').on('click', function(){
+    getProducts('rain umbrella');
+
+})
+$('#jacket-display').on('click', function(){
+    getProducts('jacket');
+})
+$('#shorts-display').on('click', function(){
+    getProducts('shorts');
+})
+$('#shirt-display').on('click', function(){
+    getProducts('shirt');
+})
+$('#longpants-display').on('click', function(){
+    getProducts('pants');
+})
+$('#longshirt-display').on('click', function(){
+    getProducts('long sleeve shirt');
+})
+$('#rainjacket-display').on('click', function(){
+    getProducts('rain jacket');
+})
+$('#snowboots-display').on('click', function(){
+    getProducts('snow boots');
+})
+$('#sunscreen-display').on('click', function(){
+    getProducts('sun screen');
+})
+$('#flask-display').on('click', function(){
+    getProducts('water flask');
+})
+$('#hat-display').on('click', function(){
+    getProducts('hat');
+})
+$('#sandals-display').on('click', function(){
+    getProducts('sandals');
+})
+$('#scarf-display').on('click', function(){
+    getProducts('scarf');
+})
+$('#gloves-display').on('click', function(){
+    getProducts('gloves');
+})
+$('#shoes-display').on('click', function(){
+    getProducts('shoes');
+})
+$('#book-display').on('click', function(){
+    getProducts('book');
+})
+$('#sunglasses-display').on('click', function(){
+    getProducts('sunglasses');
+})
+$('#swimsuits-display').on('click', function(){
+    getProducts('swimsuit and swim trunks');
+})
 
 
 // ====================================================
@@ -253,69 +315,100 @@ function weekForecast() {
 }
 
     function itemForecast() {
-        for (var i = 0; i < response.list.length; i++) {
+        
 
-           var sky = response.list[i].weather[0].id; 
+           var sky = response.list[0].weather[0].id; 
            var temp = response.list[0].temp.day
            
             console.log("Sky Response",sky);
-            console.log("Our response", response.list[i].description);
+            console.log("Our response", response.list[0].description);
 
             //Weather Conditions
             if (sky >= 300 && sky < 531) {
                 console.log('rain');
-                $('#umbrella-display').html('<img src="https://png.icons8.com/umbrella/ultraviolet/100" alt="..." class="img-thumbnail">');
-                $('#rainboots-display').html('<img src="https://image.flaticon.com/icons/svg/100/263919.svg" alt="..." class="img-thumbnail">');
+                $('#umbrella-display').html('<img src="https://png.icons8.com/umbrella/ultraviolet/100" alt="..." class="img-thumbnail ">');
+                $('#rainjacket-display').html('<img src="https://png.icons8.com/jacket/ultraviolet/100" alt="..." class="img-thumbnail ">');
+            } else {
+                $('#umbrella-display').html('<img src="https://png.icons8.com/umbrella/ultraviolet/100" alt="..." class="img-thumbnail  icon-disable">')
+                $('#rainjacket-display').html('<img src="https://png.icons8.com/jacket/ultraviolet/100" alt="..." class="img-thumbnail  icon-disable">').off("click");
             }
 
             if (sky >= 600 && sky < 622 ) {
                 console.log('snow');
-                $('#snowboots-display').html('<img src="https://png.icons8.com/winter-boots/ios7/100" alt="..." class="img-thumbnail">');
+                $('#snowboots-display').html('<img src="https://png.icons8.com/winter-boots/ios7/100" alt="..." class="img-thumbnail ">');
+            } else {
+                $('#snowboots-display').html('<img src="https://png.icons8.com/winter-boots/ios7/100" alt="..." class="img-thumbnail  icon-disable">').off("click");                
             }
 
 
             if (sky == 800 ) {
                 console.log('clear sky')
-                $('#sunglasses-display').html('<img src="https://png.icons8.com/glasses-filled/ios7/100" alt="..." class="img-thumbnail">')
-                $('#sunscreen-display').html('<img src="https://png.icons8.com/tube/color/100" alt="..." class="img-thumbnail">')
-                $('#hat-display').html('<img src="https://png.icons8.com/baseball-cap/color/100" alt="..." class="img-thumbnail">')
-            } 
+                $('#sunglasses-display').html('<img src="https://png.icons8.com/glasses-filled/ios7/100" alt="..." class="img-thumbnail ">')
+                $('#sunscreen-display').html('<img src="https://png.icons8.com/tube/color/100" alt="..." class="img-thumbnail ">')
+                $('#hat-display').html('<img src="https://png.icons8.com/baseball-cap/color/100" alt="..." class="img-thumbnail ">')
+            } else {
+                $('#sunglasses-display').html('<img src="https://png.icons8.com/glasses-filled/ios7/100" alt="..." class="img-thumbnail  icon-disable">').off("click");
+                $('#sunscreen-display').html('<img src="https://png.icons8.com/tube/color/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+                $('#hat-display').html('<img src="https://png.icons8.com/baseball-cap/color/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+            }
             
             
 
             //Temperature Conditions
             if (temp > 85) {
-                $('#flask-display').html('<img src="https://png.icons8.com/bottle-of-water/office/100" alt="..." class="img-thumbnail">')
-                $('#sandals-display').html('<img src="https://png.icons8.com/flip-flops/color/96" alt="..." class="img-thumbnail">')
-                $('#swimsuits-display').html('<img src="https://png.icons8.com/swimmer-back-view/ultraviolet/100" alt="..." class="img-thumbnail">')
+                $('#flask-display').html('<img src="https://png.icons8.com/bottle-of-water/office/100" alt="..." class="img-thumbnail ">')
+                $('#sandals-display').html('<img src="https://png.icons8.com/flip-flops/color/96" alt="..." class="img-thumbnail ">')
+                $('#swimsuits-display').html('<img src="https://png.icons8.com/swimmer-back-view/ultraviolet/100" alt="..." class="img-thumbnail ">')
             } else {
-                $('#shoes-display').html('<img src="https://png.icons8.com/trainers/color/96" alt="..." class="img-thumbnail">')
+                $('#flask-display').html('<img src="https://png.icons8.com/bottle-of-water/office/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+                $('#sandals-display').html('<img src="https://png.icons8.com/flip-flops/color/96" alt="..." class="img-thumbnail icon-disable">').off("click");
+                $('#swimsuits-display').html('<img src="https://png.icons8.com/swimmer-back-view/ultraviolet/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+            }
+
+            if (temp < 85) {
+                $('#shoes-display').html('<img src="https://png.icons8.com/trainers/color/96" alt="..." class="img-thumbnail ">')
+            } else {
+                $('#shoes-display').html('<img src="https://png.icons8.com/trainers/color/96" alt="..." class="img-thumbnail icon-disable">').off("click");
             }
             
             if (temp < 50) {
-                $('#jacket-display').html('<img src="https://png.icons8.com/jacket/color/100" alt="..." class="img-thumbnail">')
-            } 
+                $('#jacket-display').html('<img src="https://png.icons8.com/jacket/color/100" alt="..." class="img-thumbnail ">')
+            } else {
+                $('#jacket-display').html('<img src="https://png.icons8.com/jacket/color/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+            }
 
             if (temp <40) {
-                $('#scarf-display').html('<img src="https://png.icons8.com/scarf/office/100" alt="..." class="img-thumbnail">')
-                $('#gloves-display').html('<img src="https://png.icons8.com/mitten/color/100" alt="..." class="img-thumbnail">')
+                $('#scarf-display').html('<img src="https://png.icons8.com/scarf/office/100" alt="..." class="img-thumbnail ">')
+                $('#gloves-display').html('<img src="https://png.icons8.com/mitten/color/100" alt="..." class="img-thumbnail ">')
+            } else {
+                $('#scarf-display').html('<img src="https://png.icons8.com/scarf/office/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+                $('#gloves-display').html('<img src="https://png.icons8.com/mitten/color/100" alt="..." class="img-thumbnail icon-disable">').off("click");
             }
 
             if (temp > 75) {
-                $('#shirt-display').html('<img src="https://png.icons8.com/t-shirt/office/100" alt="..." class="img-thumbnail">')
-                $('#shorts-display').html('<img src="https://png.icons8.com/long-shorts/color/100" alt="..." class="img-thumbnail">')
+                $('#shirt-display').html('<img src="https://png.icons8.com/t-shirt/office/100" alt="..." class="img-thumbnail ">')
+                $('#shorts-display').html('<img src="https://png.icons8.com/long-shorts/color/100" alt="..." class="img-thumbnail ">')
             } else {
-                $('#longshirt-display').html('<img src="https://png.icons8.com/shirt-filled/ios7/100" alt="..." class="img-thumbnail">')
-                $('#longpants-display').html('<img src="https://png.icons8.com/jeans/color/100" alt="..." class="img-thumbnail">')
+                $('#shirt-display').html('<img src="https://png.icons8.com/t-shirt/office/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+                $('#shorts-display').html('<img src="https://png.icons8.com/long-shorts/color/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+            }
 
+            if (temp < 75) {
+                $('#longshirt-display').html('<img src="https://png.icons8.com/shirt-filled/ios7/100" alt="..." class="img-thumbnail ">')
+                $('#longpants-display').html('<img src="https://png.icons8.com/jeans/color/100" alt="..." class="img-thumbnail ">')
+            } else {
+                $('#longshirt-display').html('<img src="https://png.icons8.com/shirt-filled/ios7/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+                $('#longpants-display').html('<img src="https://png.icons8.com/jeans/color/100" alt="..." class="img-thumbnail icon-disable">').off("click");
             }
 
             //temp && weather condition
             if (sky >= 801 && sky < 804 && temp < 75 && temp > 50) {
-                $('#book-display').html('<img src="https://png.icons8.com/book/dusk/100" alt="..." class="img-thumbnail">')
-            } 
+                $('#book-display').html('<img src="https://png.icons8.com/book/dusk/100" alt="..." class="img-thumbnail ">')
+            } else {
+                $('#book-display').html('<img src="https://png.icons8.com/book/dusk/100" alt="..." class="img-thumbnail icon-disable">').off("click");
+            }
 
-        }
+        
         console.log(sky);
     }
 
@@ -335,7 +428,6 @@ function weekForecast() {
 // End of api function
 });
     
-
 
 
 
