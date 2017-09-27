@@ -45,7 +45,6 @@ function _cb_findItemsByKeywords(root) {
 
 $('#umbrella-display').on('click', function(){
     getProducts('rain umbrella');
-
 })
 $('#jacket-display').on('click', function(){
     getProducts('jacket');
@@ -73,6 +72,7 @@ $('#sunscreen-display').on('click', function(){
 })
 $('#flask-display').on('click', function(){
     getProducts('water flask');
+
 })
 $('#hat-display').on('click', function(){
     getProducts('hat');
@@ -98,7 +98,6 @@ $('#sunglasses-display').on('click', function(){
 $('#swimsuits-display').on('click', function(){
     getProducts('swimsuit and swim trunks');
 })
-
 
 // ====================================================
 //                API and Ajax Setup
