@@ -1,7 +1,41 @@
+/* Hero Image */
+
+.heroImage {
+    background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(15, 15, 15, 0.45), 
+      rgba(22, 21, 21, 0.45)
+    ),
+    /* bottom, image */
+    url("https://c1.staticflickr.com/3/2869/33716836072_34471a4934_b.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 620px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.heroSpace {
+    margin-bottom: 20px;
+}
+
+.weekForcast {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px 20px;
+}
+/* Weather Container */
+
+#weatherContainer p {
+    color: rgba(255, 255, 255, 0.85)
+}
 img.weatherIcon {
-    width: 250px;
-    height: 250px;
+    width: 215px;
+    height: 215px;
     padding: 10px 10px;
+    filter: invert(100%);
     
 }
 
@@ -9,9 +43,85 @@ img.weekIcon {
     width: 75px;
     height: 75px;
     padding: 10px 10px;
+    filter: invert(100%);
 }
 
 .temp {
     text-align: center;
     font-size: 80px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Modal */
+
+.modal.in .modal-dialog {
+    width: 70%;
+    min-height: auto; 
+    background: rgba(0, 0, 0, 0);
+}
+
+.modal-open .modal {
+    background: rgba(128, 214, 238, 0.89);
+}
+
+.modal-header, .modal-body, .modal-footer {
+    background: rgba(0, 0, 0, 0.57);
+    border: none;
+    color: #F3DCDC;
+}
+
+.modal-header {
+    border-bottom: 1px solid white;
+}
+
+.modal-content {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.currentDayModal {
+    filter: invert(100%);
+}
+
+.weatherIconModal {
+    width: 150px;
+    height: 150px;
+}
+
+.tempModal {
+    font-size: 30px;
+    padding-top: 20px
+
+}
+
+.highLowModal {
+    font-size: 30px;
+    padding-top: 20px;
+    
+}
+
+.chanceRainModalRed {
+    color: red;
+}
+
+.chanceRainModalGreen {
+    color: green;
+}
+
+.chanceSnowModalRed {
+    color: red;
+}
+
+.chanceSnowModalGreen {
+    color: green;
+}
+
+.btn-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+    background: rgba(191, 229, 240, 0.1);
+}
+
+.btn-info:hover {
+    background: rgba(128, 214, 238, 0.43);
 }

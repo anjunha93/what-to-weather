@@ -87,7 +87,7 @@ function skyStatus() {
     // if statements to show the weather icon based on the id condition
     if (sky == 800 ) {
         console.log("Clear Sky");
-        $('#today-display').html('<img src="https://image.freepik.com/free-icon/clear-sun_318-30039.jpg" class="weatherIcon center-block" />');
+        $('#today-display').html('<img src="https://image.flaticon.com/icons/svg/23/23389.svg" class="weatherIcon center-block" />');
     }
     
     else if (sky >= 801 && sky < 805 ) {
@@ -143,7 +143,7 @@ function weekForecast() {
             // if statements to show the weather icon based on the id condition
         if (showWeather == 800 ) {
             console.log("Clear showWeather");
-            iconImg.attr("src", "https://image.freepik.com/free-icon/clear-sun_318-30039.jpg", "class", "weatherIcon");
+            iconImg.attr("src", "https://image.flaticon.com/icons/svg/23/23389.svg", "class", "weatherIcon");
         }
         
         else if (showWeather >= 801 && showWeather < 805 ) {
@@ -177,11 +177,80 @@ function weekForecast() {
         console.log(showWeek);  
         console.log(formattedDay);
         console.log(showWeather);
-
     }
 }
 
-  
+  function modal() {
+
+     // looping the week and gathering the weather data 
+     for (var i = 1; i < response.list.length; i++) {
+
+         // assigning the current weather status
+        var sky = response.list[0].weather[0].id;  
+        
+        // if statements to show the weather icon based on the id condition
+        if (sky == 800 ) {
+            console.log("Clear Sky");
+            $('.currentDayModal').html('<img src="https://image.flaticon.com/icons/svg/23/23389.svg" class="weatherIconModal center-block img-responsive" />');
+        }
+        
+        else if (sky >= 801 && sky < 805 ) {
+            console.log("Clouds", sky);
+            $('.currentDayModal').html('<img src="http://www.iconarchive.com/download/i89285/icons8/ios7/Weather-Partly-Cloudy-Day.ico" class="weatherIconModal center-block img-responsive" />');
+        }
+
+        else if (sky >= 300 && sky < 531 ) {
+            console.log('rain');
+            $('.currentDayModal').html('<img src="http://icons.iconarchive.com/icons/icons8/ios7/512/Weather-Storm-icon.png" class="weatherIconModal center-block img-responsive" />');
+        }
+
+        else if (sky >= 200 && sky < 233 ) {
+            console.log('thunderstorm');
+            $('.currentDayModal').html('<img src="http://icons.iconarchive.com/icons/icons8/ios7/512/Weather-Storm-icon.png" class="weatherIconModal center-block img-responsive" />');
+        }
+
+        else if (sky >= 600 && sky < 622 ) {
+            console.log("snow");
+            $('.currentDayModal').html('<img src="https://maxcdn.icons8.com/Share/icon/Weather//snow1600.png" class="weatherIcon center-block img-responsive" />');
+        }
+
+        // assigning high/low for modal
+        var highTemp = response.list[i].temp.max;
+        var showHighTemp = Math.ceil(highTemp) + ' \xB0';
+        var lowTemp = response.list[i].temp.min;
+        var showLowTemp = Math.ceil(lowTemp) + ' \xB0';
+
+        // assigning current temp for modal
+        var dayTemp = response.list[0].temp.day;
+        var currentTemp = Math.ceil(dayTemp) + ' \xB0F';
+        
+        // adding temp city and high low to document 
+        $(".tempModal").text(currentTemp);
+        $(".cityModal").html(response.city.name + ", TX");
+        $(".highLowModal").text(showHighTemp + " /  " + showLowTemp);
+
+        // setting notifcation for rain
+        if (sky >= 300 && sky < 531 || sky >= 300 && sky < 531 ) {
+            
+            $(".chanceRainModal").html('<p>Chance of Rain: <span class="chanceRainModalGreen"><i class="fa fa-check-circle" aria-hidden="true"></i></span></p>')
+        
+        } else {
+
+            $(".chanceRainModal").html('<p>Chance of Rain: <span class="chanceRainModalRed"><i class="fa fa-times-circle" aria-hidden="true"></i></span></p>')
+        }
+
+        // setting notifcation for snow
+        if (sky >= 600 && sky < 622 ) {
+            
+            $(".chanceSnowModal").html('<p>Chance of Snow: <span class="chanceSnowModalGreen"><i class="fa fa-check-circle" aria-hidden="true"></i></span></p>')
+        
+        } else {
+
+            $(".chanceSnowModal").html('<p>Chance of Snow: <span class="chanceSnowModalRed"><i class="fa fa-times-circle" aria-hidden="true"></i></span></p>')
+        }
+
+    }
+}
 
     function itemForecast() {
         for (var i = 0; i < response.list.length; i++) {
@@ -260,6 +329,7 @@ function weekForecast() {
    // Calling days of the week per fucntion
     skyStatus();
     weekForecast();
+    modal();
     itemForecast();
    
 // End of api function
