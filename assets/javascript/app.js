@@ -153,7 +153,7 @@ function skyStatus() {
     
     else if (sky >= 801 && sky < 805 ) {
         console.log("Clouds", sky);
-        $('#today-display').html('<img src="http://www.iconarchive.com/download/i89285/icons8/ios7/Weather-Partly-Cloudy-Day.ico" class="weatherIcon center-block" />');
+        $('#today-display').html('<img src="http://www.iconsfind.com/wp-content/uploads/2016/07/20160725_5795bcc9d0b0b.png" class="weatherIcon center-block" />');
     }
 
     else if (sky >= 300 && sky < 531 ) {
@@ -197,9 +197,9 @@ function weekForecast() {
 
         // creating page elements
         var weatherContainer = $('<div class="col-md-2 col-sm-2">');
-        var pFormattedDay = $('<p class="text-center">').text(formattedDay);
+        var pFormattedDay = $('<p class="text-center weekTemp">').text(formattedDay);
         var iconImg = $('<img class="weekIcon center-block">');
-        var highLowTemp = $('<p class="text-center">').text(showHighTemp + "/ " + showLowTemp);
+        var highLowTemp = $('<p class="text-center weekTemp">').text(showHighTemp + "/ " + showLowTemp);
 
             // if statements to show the weather icon based on the id condition
         if (showWeather == 800 ) {
@@ -209,7 +209,7 @@ function weekForecast() {
         
         else if (showWeather >= 801 && showWeather < 805 ) {
             console.log("Clouds", showWeather);
-            iconImg.attr('src', "http://www.iconarchive.com/download/i89285/icons8/ios7/Weather-Partly-Cloudy-Day.ico", 'class', "weatherIcon");
+            iconImg.attr('src', "http://www.iconsfind.com/wp-content/uploads/2016/07/20160725_5795bcc9d0b0b.png", 'class', "weatherIcon");
         }
 
         else if (showWeather >= 300 && showWeather < 531 ) {
@@ -257,7 +257,7 @@ function weekForecast() {
         
         else if (sky >= 801 && sky < 805 ) {
             console.log("Clouds", sky);
-            $('.currentDayModal').html('<img src="http://www.iconarchive.com/download/i89285/icons8/ios7/Weather-Partly-Cloudy-Day.ico" class="weatherIconModal center-block img-responsive" />');
+            $('.currentDayModal').html('<img src="http://www.iconsfind.com/wp-content/uploads/2016/07/20160725_5795bcc9d0b0b.png" class="weatherIconModal center-block img-responsive" />');
         }
 
         else if (sky >= 300 && sky < 531 ) {
