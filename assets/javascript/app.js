@@ -53,7 +53,7 @@ $('#shorts-display').on('click', function(){
     getProducts('shorts');
 })
 $('#shirt-display').on('click', function(){
-    getProducts('shirt');
+    getProducts('t-shirt');
 })
 $('#longpants-display').on('click', function(){
     getProducts('pants');
