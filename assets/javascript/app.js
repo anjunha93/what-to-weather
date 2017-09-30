@@ -276,9 +276,9 @@ function weekForecast() {
         }
 
         // assigning high/low for modal
-        var highTemp = response.list[i].temp.max;
+        var highTemp = response.list[0].temp.max;
         var showHighTemp = Math.ceil(highTemp) + ' \xB0';
-        var lowTemp = response.list[i].temp.min;
+        var lowTemp = response.list[0].temp.min;
         var showLowTemp = Math.ceil(lowTemp) + ' \xB0';
 
         // assigning current temp for modal
