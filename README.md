@@ -6,7 +6,7 @@ The main page will show today's weather.
 - Forecast (sunny, cloudy, windy, etc.)
 
 
-The page will also make a suggestion on what you shoudl wear based on that day's weather forceast.
+The page will also make a suggestion on what you should wear based on that day's weather forceast.
 - Ex. "High chance of rain at noon, you should take an umbrella."'
 - Ex. "It's a little chilly today. You should wear a sweater."
 
